@@ -1,5 +1,5 @@
 import fs from 'fs';
-import {Policy} from "../../PolicyLine";
+import {Policy} from 'policyline';
 
 const path = './abac/json'; // path from root index.js
 const pathToExpression = path + '/expression.json';
