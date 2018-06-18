@@ -1,0 +1,12 @@
+{
+  "comment": "Policies file for Location limits",
+  "policies": {
+    "location": {
+      "target": [],
+      "effect": "permit",
+      "algorithm": "all",
+      "condition": [
+      ]
+    }
+  }
+}

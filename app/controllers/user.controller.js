@@ -52,4 +52,13 @@ UserController.login = async (req, res) => {
     }
 };
 
+UserController.delete = async (req, res) => {
+    try {
+        await req.user.remove();
+        return res.json({message: `user deleted successfully`});
+    } catch (e) {
+        return res.status(500).send(e);
+    }
+};
+
 export default UserController;

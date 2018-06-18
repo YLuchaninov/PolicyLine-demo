@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser';
 import authorization from './authorization';
-import abac from './abac';
+import extractor from './resourceExtractor';
 
 const prefixMiddleware = (app) => {
     app.use(bodyParser.json());
@@ -10,7 +10,7 @@ const prefixMiddleware = (app) => {
 };
 
 export {
-    abac,
     prefixMiddleware,
-    authorization
+    authorization,
+    extractor
 }

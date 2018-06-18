@@ -1,4 +1,5 @@
 import UserController from '../../controllers/user.controller';
+import {authorization} from "../../middlewares";
 
 export default (router) => {
     // create user
@@ -8,4 +9,8 @@ export default (router) => {
     // login
     router.post('/user/login',
         UserController.login);
+
+    router.post('/user/delete',
+        authorization('header'),
+        UserController.delete);
 };

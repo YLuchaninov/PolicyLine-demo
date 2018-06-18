@@ -1,0 +1,13 @@
+{
+  "comment": "Policies file for addPost Policy",
+  "policies": {
+    "addPost": {
+      "target": [
+        "user.role='user'",
+        "$in(['company_a', 'company_b', 'company_c'],user.company)"
+      ],
+      "effect": "permit",
+      "algorithm": "all"
+    }
+  }
+}

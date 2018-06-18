@@ -1,0 +1,13 @@
+{
+  "comment": "Policies file for Unregistered User",
+  "policies": {
+    "unregisteredUser": {
+      "target": [],
+      "effect": "permit",
+      "algorithm": "all",
+      "condition": [
+        "resource.company='company_a'"
+      ]
+    }
+  }
+}

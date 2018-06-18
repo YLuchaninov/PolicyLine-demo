@@ -1,0 +1,17 @@
+{
+  "comment": "Policies file for Registered User",
+  "policies": {
+    "user": {
+      "target": [
+        "user.role='user'",
+        "user.company!='company_c'"
+      ],
+      "effect": "permit",
+      "algorithm": "all",
+      "condition": [
+        "resource.$or={company:'company_a'}",
+        "resource.$or=(user.company!='company_a')?{company: user.company}:null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "comment": "Policies file for SuperAdmin Role",
+  "policies": {
+    "superAdmin": {
+      "target": [
+        "user.role='superAdmin'"
+      ],
+      "condition": [
+      ],
+      "effect": "permit",
+      "algorithm": "all"
+    }
+  }
+}

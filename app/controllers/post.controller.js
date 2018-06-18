@@ -9,6 +9,7 @@ PostController.addPost = async (req, res) => {
     try {
         const rawPost = req.body.post;
         rawPost.author = req.user.cuid;
+        rawPost.company = req.user.company;
         rawPost.cuid = cuid();
         rawPost.location = {
             type: 'Point',
@@ -25,7 +26,7 @@ PostController.addPost = async (req, res) => {
 
 PostController.getPost = async (req, res) => {
     try {
-        const post = await Post.findOne({cuid: req.params.cuid}).exec();
+        const post = await Post.findOne(req.condition).exec();
         return res.json({post});
     } catch (e) {
         return res.status(500).send(e);
@@ -49,7 +50,7 @@ PostController.getAll = async (req, res) => {
 
 PostController.updatePost = async (req, res) => {
     try {
-        const post = await Post.findOne({cuid: req.params.cuid}).exec();
+        const post = await Post.findOne(req.condition).exec();
 
         if (post) {
             post.title = req.body.post.title || post.title;
@@ -73,7 +74,7 @@ PostController.updatePost = async (req, res) => {
 
 PostController.deletePost = async (req, res) => {
     try {
-        const post = await Post.findOne({cuid: req.params.cuid}).exec();
+        const post = await Post.findOne(req.condition).exec();
         if (!post) {
             return res.status(403).send(statuses[403]);
         }

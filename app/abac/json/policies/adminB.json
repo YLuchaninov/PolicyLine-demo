@@ -1,0 +1,16 @@
+{
+  "comment": "Policies file for Admin Role of Company B",
+  "policies": {
+    "adminB": {
+      "target": [
+        "user.role='admin'",
+        "user.company='company_b'"
+      ],
+      "condition": [
+        "resource.company='company_b'"
+      ],
+      "effect": "permit",
+      "algorithm": "all"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "expressions": {
+    "getPosts": "user OR unregisteredUser OR adminA OR adminB OR adminC OR superAdmin",
+    "getDetails": "user OR unregisteredUser OR adminA OR adminB OR adminC OR superAdmin",
+    "addPost": "addPost",
+    "updatePost": "userCompanyA OR author",
+    "deletePost": "userCompanyA OR author OR adminA OR adminB OR adminC OR superAdmin"
+  }
+}
