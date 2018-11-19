@@ -3,10 +3,7 @@
   "policies": {
     "worktime": {
       "target": [
-        "$timeBetween($moment(env.time, 'HH:mm a').format('HH:mm a'),'9:00','18:00')"
-      ],
-      "effect": "permit",
-      "algorithm": "all"
+      ]
     }
   }
 }

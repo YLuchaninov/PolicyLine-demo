@@ -1,5 +1,5 @@
-import env from './env';
-import statuses from '../config/statuses';
+const env  = require('./env');
+const statuses  = require('../config/statuses');
 
 const abac = (policyGetter) => {
 
@@ -9,8 +9,13 @@ const abac = (policyGetter) => {
         const action = null;
 
         try {
-            const access = policy.check(user, action, env.toObject(), req.resource);
-            const {condition} = policy.condition() || {}; ///Important: undefined in denied case
+            const access = policy.check({
+                user,
+                action,
+                env: env.toObject(),
+                resource: req.resource
+            });
+            const condition = policy.getConditions();
 
             if (access && condition) {
                 req.condition = condition;
@@ -24,4 +29,4 @@ const abac = (policyGetter) => {
     };
 };
 
-export default abac;
+module.exports = abac;

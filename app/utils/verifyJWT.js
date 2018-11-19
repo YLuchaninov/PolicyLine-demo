@@ -1,6 +1,6 @@
-import Jwt from "jsonwebtoken";
+const Jwt = require("jsonwebtoken");
 
-export default function verifyJWT(token, key) {
+module.exports = function verifyJWT(token, key) {
     return new Promise((resolve, reject) => {
         Jwt.verify(token, key, (err, decoded) => {
             if (err) {

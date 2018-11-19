@@ -5,11 +5,6 @@
       "target": [
         "user.role='user'",
         "user.company='company_a'"
-      ],
-      "effect": "permit",
-      "algorithm": "all",
-      "condition": [
-        "resource.company='company_a'"
       ]
     }
   }

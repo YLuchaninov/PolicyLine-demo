@@ -1,3 +1,5 @@
+// todo refactor
+
 const RADIUS = 5000; // 5 km
 const LIMIT = 50; // 50 posts in page
 
@@ -37,7 +39,7 @@ function limitBuilder(query) {
     return [query.page || 0, query.limit || LIMIT];
 }
 
-export {
+module.exports = {
     selectorBuilder,
     limitBuilder
 };

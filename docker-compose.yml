@@ -1,4 +1,4 @@
-version: "2"
+version: "3.3"
 services:
   web:
     container_name: app
@@ -10,17 +10,12 @@ services:
       - "3000:3000"
     links:
       - mongo
+    depends_on:
+      - mongo
   mongo:
     container_name: mongo
     image: mongo
-    ports:
-      - "27017:27017"
-    volumes_from:
-      - mongodata
-  # The mongo data can be abstracted into a docker data container allowing for maximum portability.
-  # By doing this, multiple instances can share the same data container
-  # and also allows for easy backup and restore functionality.
-  mongodata:
-    image: tianon/true
     volumes:
       - ./data:/data/db
+    ports:
+      - "27017:27017"

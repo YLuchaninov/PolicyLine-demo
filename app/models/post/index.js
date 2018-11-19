@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import uniqueValidator from 'mongoose-unique-validator';
+const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 
 const Schema = mongoose.Schema;
 
@@ -21,7 +21,7 @@ const postSchema = new Schema({
     },
 
     location: {
-        type: {type: 'String'},
+        type: { type: 'String' },
         coordinates: ['Number']
     },
 
@@ -53,9 +53,9 @@ const postSchema = new Schema({
     }
 });
 
-postSchema.index({"location": "2dsphere"});
+postSchema.index({ "location": "2dsphere" });
 postSchema.plugin(uniqueValidator);
 
 const Post = mongoose.model('Post', postSchema);
 
-export default Post;
+module.exports = Post;

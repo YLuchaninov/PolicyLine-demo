@@ -4,13 +4,8 @@
     "user": {
       "target": [
         "user.role='user'",
-        "user.company!='company_c'"
-      ],
-      "effect": "permit",
-      "algorithm": "all",
-      "condition": [
-        "resource.$or={company:'company_a'}",
-        "resource.$or=(user.company!='company_a')?{company: user.company}:null"
+        "user.company~=[\"company_a\",\"company_b\"]",
+        "user.company=resource.company"
       ]
     }
   }

@@ -1,15 +1,8 @@
 {
-  "comment": "Policies file for Post Author",
+  "comment": "Policies file for Author of Post",
   "policies": {
     "author": {
       "target": [
-        "user.role='user'",
-        "$in(['company_b', 'company_c'],user.company)"
-      ],
-      "effect": "permit",
-      "algorithm": "all",
-      "condition": [
-        "resource.company=user.company",
         "resource.author=user.cuid"
       ]
     }

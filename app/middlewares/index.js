@@ -1,6 +1,6 @@
-import bodyParser from 'body-parser';
-import authorization from './authorization';
-import extractor from './resourceExtractor';
+const bodyParser = require('body-parser');
+const authorization = require('./authorization');
+const extractor = require('./resourceExtractor');
 
 const prefixMiddleware = (app) => {
     app.use(bodyParser.json());
@@ -9,7 +9,7 @@ const prefixMiddleware = (app) => {
     }));
 };
 
-export {
+module.exports = {
     prefixMiddleware,
     authorization,
     extractor

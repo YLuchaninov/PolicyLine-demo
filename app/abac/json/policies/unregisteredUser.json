@@ -2,10 +2,7 @@
   "comment": "Policies file for Unregistered User",
   "policies": {
     "unregisteredUser": {
-      "target": [],
-      "effect": "permit",
-      "algorithm": "all",
-      "condition": [
+      "target": [
         "resource.company='company_a'"
       ]
     }

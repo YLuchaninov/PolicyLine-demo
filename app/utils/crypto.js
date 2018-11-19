@@ -1,5 +1,5 @@
-import crypto from 'crypto';
-import config from '../config';
+const crypto = require('crypto');
+const config = require('../config');
 
 const algorithm = 'aes-256-ctr';
 const privateKey = config.key.privateKey;
@@ -18,7 +18,7 @@ function encrypt(password) {
     return crypted;
 }
 
-export {
+module.exports = {
     decrypt,
     encrypt
 };

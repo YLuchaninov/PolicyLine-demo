@@ -1,7 +1,7 @@
-import cuid from 'cuid';
-import {selectorBuilder, limitBuilder} from '../helpers/queryBuilder';
-import Post from '../models/post';
-import statuses from '../config/statuses';
+const cuid = require('cuid');
+const { selectorBuilder, limitBuilder } = require('../helpers/queryBuilder');
+const Post = require('../models/post');
+const statuses = require('../config/statuses');
 
 const PostController = {};
 
@@ -18,7 +18,7 @@ PostController.addPost = async (req, res) => {
 
         const newPost = new Post(rawPost);
         const post = await newPost.save();
-        return res.json({post});
+        return res.json({ post });
     } catch (e) {
         res.status(500).send(e);
     }
@@ -27,7 +27,7 @@ PostController.addPost = async (req, res) => {
 PostController.getPost = async (req, res) => {
     try {
         const post = await Post.findOne(req.condition).exec();
-        return res.json({post});
+        return res.json({ post });
     } catch (e) {
         return res.status(500).send(e);
     }
@@ -64,7 +64,7 @@ PostController.updatePost = async (req, res) => {
             post.location = (req.body.post.location) ? newLocation : post.location;
 
             const saved = await post.save();
-            return res.json({post: saved});
+            return res.json({ post: saved });
         }
         return res.status(404).send(statuses[404]);
     } catch (e) {
@@ -85,4 +85,4 @@ PostController.deletePost = async (req, res) => {
     }
 };
 
-export default PostController;
+module.exports = PostController;

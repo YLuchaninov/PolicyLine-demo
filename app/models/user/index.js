@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import uniqueValidator from 'mongoose-unique-validator';
+const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 
 const Schema = mongoose.Schema;
 
@@ -23,7 +23,7 @@ const userSchema = new Schema({
     },
 
     location: {
-        type: {type: 'String'},
+        type: { type: 'String' },
         coordinates: ['Number']
     },
 
@@ -43,8 +43,8 @@ const userSchema = new Schema({
 
 });
 userSchema.plugin(uniqueValidator);
-userSchema.index({"location": "2dsphere"});
+userSchema.index({ "location": "2dsphere" });
 
 const User = mongoose.model('User', userSchema);
 
-export default User;
+module.exports = User;

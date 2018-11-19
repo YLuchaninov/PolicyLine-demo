@@ -1,6 +1,6 @@
-import verifyJWT from '../utils/verifyJWT';
-import User from "../models/user";
-import config from "../config";
+const verifyJWT = require('../utils/verifyJWT');
+const User = require("../models/user");
+const config = require("../config");
 
 const privateKey = config.key.privateKey;
 
@@ -15,7 +15,7 @@ const auth = (type) => {
 
             if (token.length) {
                 const decoded = await verifyJWT(token, privateKey);
-                req.user = await User.findOne({username: decoded.username, cuid: decoded.id});
+                req.user = await User.findOne({ username: decoded.username, cuid: decoded.id });
             }
 
             next();
@@ -25,4 +25,4 @@ const auth = (type) => {
     };
 };
 
-export default auth;
+module.exports = auth;

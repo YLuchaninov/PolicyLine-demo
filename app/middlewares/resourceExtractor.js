@@ -21,4 +21,4 @@ const extractor = (resourceRules) => {
     };
 };
 
-export default extractor;
+module.exports = extractor;

@@ -1,11 +1,11 @@
-import {Router} from 'express';
+const { Router } = require('express');
 
-import setupPostRoutes from './posts.routes';
-import setupUserRoutes from './user.routes';
+const setupPostRoutes = require('./posts.routes');
+const setupUserRoutes = require('./user.routes');
 
 const apiRouter = new Router();
 
 setupPostRoutes(apiRouter);
 setupUserRoutes(apiRouter);
 
-export default apiRouter;
+module.exports = apiRouter;

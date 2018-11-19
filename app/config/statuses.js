@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     200: {message: 'Ok'},
     500: {message: 'Internal Server Error'},
     400: {message: 'Bad Request'},

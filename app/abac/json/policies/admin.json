@@ -1,9 +1,10 @@
 {
   "comment": "Policies file for SuperAdmin Role",
   "policies": {
-    "superAdmin": {
+    "admin": {
       "target": [
-        "user.role='superAdmin'"
+        "user.role='admin'",
+        "resource.company=user.company"
       ]
     }
   }

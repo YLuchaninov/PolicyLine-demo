@@ -1,7 +1,8 @@
-import fs from 'fs';
-import {Policy} from 'policyline';
-
-const path = './abac/json'; // path from root index.js
+const fs = require('fs');
+const { Policy } = require('policyline');
+const ph = require('path')
+// todo change to './abac/json'
+const path = ph.resolve(process.env.PWD, './abac/json'); // path from root index.js
 const pathToExpression = path + '/expression.json';
 const pathToPolicies = path + '/policies';
 
@@ -88,7 +89,7 @@ async function loadPolicies() {
         }
     }
 
-    return {expressions, policies};
+    return { expressions, policies };
 }
 
 loadPolicies().then((data) => {
@@ -104,7 +105,7 @@ loadPolicies().then((data) => {
     console.log(e);
 });
 
-export default (policyName) => {
+module.exports = (policyName) => {
     return function () {
         return controller[policyName] || fakePolicy;
     }

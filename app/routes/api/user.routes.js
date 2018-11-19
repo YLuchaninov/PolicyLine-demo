@@ -1,10 +1,12 @@
-import UserController from '../../controllers/user.controller';
-import {authorization} from "../../middlewares";
+const UserController = require('../../controllers/user.controller');
+const { authorization } = require("../../middlewares");
 
-export default (router) => {
+module.exports = (router) => {
     // create user
-    router.post('/user',
-        UserController.create);
+    router.post('/user', (req, res)=>{
+        return res.status(500).send({});
+    });
+        //UserController.create);
 
     // login
     router.post('/user/login',

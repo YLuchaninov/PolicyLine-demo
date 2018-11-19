@@ -1,5 +1,5 @@
-import apiRouter from './api';
+const apiRouter = require('./api');
 
-export default (app) => {
+module.exports = (app) => {
     app.use('/api', apiRouter);
 }
