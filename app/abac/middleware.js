@@ -15,6 +15,7 @@ const abac = (policyGetter) => {
                 env: env.toObject(),
                 resource: req.resource
             });
+
             const condition = policy.getConditions();
 
             if (access && condition) {

@@ -27,4 +27,13 @@ You can add new companies with certain rules, which depend not only on roles or 
 * `docker rm $(docker ps -a -q)` - remove all containers
 * `docker rmi $(docker images -q)` - delete all images
 
+### TODO
+
+* "user.company~=[\"company_a\",\"company_b\",\"company_c\"]"
+* ping mongo connection
+* dynamic loading of policy
+* check all requests by policies
+* make worktime & location policies
+* docker volume for node.js
+
 

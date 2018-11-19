@@ -20,8 +20,6 @@ UserController.create = async (req, res) => {
             coordinates: body.location
         };
 
-        console.log(body);
-
         await User.create(body);
         return res.status(200).send(statuses[200]);
     } catch (e) {

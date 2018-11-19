@@ -12,7 +12,10 @@ const operators = ['AND', 'OR', '(', ')'];
 
 // fake policy will be returned before done loading of policies
 const fakePolicy = {
-    check: () => false,
+    check: () => {
+        console.warn('fake policy was checking!');
+        return false;
+    },
     condition: () => {
     }
 };
@@ -103,7 +106,7 @@ loadPolicies().then((data) => {
 
     console.log('\n\n>> policies was compiled!\n\n');
 }).catch((e) => {
-    console.log(e);
+    console.warn(e);
 });
 
 module.exports = (policyName) => {

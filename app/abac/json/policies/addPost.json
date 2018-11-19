@@ -4,7 +4,7 @@
     "addPost": {
       "target": [
         "user.role='user'",
-        "user.company~=[\"company_A\",\"company_B\",\"company_C\"]"
+        "user.company~=[\"company_a\",\"company_b\",\"company_c\"]"
       ]
     }
   }
