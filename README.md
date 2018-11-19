@@ -35,5 +35,7 @@ You can add new companies with certain rules, which depend not only on roles or 
 * check all requests by policies
 * make worktime & location policies
 * docker volume for node.js
+* setup path for abac policies
+* add push-notification example
 
 
