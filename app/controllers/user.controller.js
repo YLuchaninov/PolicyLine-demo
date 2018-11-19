@@ -9,28 +9,25 @@ const privateKey = config.key.privateKey;
 
 const UserController = {};
 
-UserController.create = (req, res)=>{
-    return res.status(500).send({});
+UserController.create = async (req, res) => {
+    try {
+        const body = req.body;
+
+        body.password = encrypt(req.body.password);
+        body.cuid = cuid();
+        body.location = {
+            type: 'Point',
+            coordinates: body.location
+        };
+
+        console.log(body);
+
+        await User.create(body);
+        return res.status(200).send(statuses[200]);
+    } catch (e) {
+        return res.status(500).send(e);
+    }
 };
-//     async (req, res) => {
-//     console.log(req, res);
-//     return res.status(500).send({});
-//     try {
-//         const body = req.body;
-//
-//         body.password = encrypt(req.body.password);
-//         body.cuid = cuid();
-//         body.location = {
-//             type: 'Point',
-//             coordinates: body.location
-//         };
-//
-//         await User.create(body);
-//         return res.status(200).send(statuses[200]);
-//     } catch (e) {
-//         return res.status(500).send(e);
-//     }
-// };
 
 UserController.login = async (req, res) => {
     try {

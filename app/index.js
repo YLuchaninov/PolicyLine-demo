@@ -11,14 +11,9 @@ prefixMiddleware(app);
 connectToDb().then(() => {
     initRouters(app);
 
-    app.use((req, res, next) => {
-        next();
-    })
-
     // start server
     app.listen(config.server.port, () => {
-        console.log(app);
-        console.log('app started at http://localhost:3000/');
+        console.log(`app started at http://${config.server.host}:${config.server.port}/`);
     });
 }).catch((err) => {
     console.error(err);

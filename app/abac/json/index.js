@@ -1,10 +1,11 @@
 const fs = require('fs');
 const { Policy } = require('policyline');
-const ph = require('path')
-// todo change to './abac/json'
-const path = ph.resolve(process.env.PWD, './abac/json'); // path from root index.js
-const pathToExpression = path + '/expression.json';
-const pathToPolicies = path + '/policies';
+const path = require('path');
+
+// todo
+const pth = path.resolve(process.env.PWD, './abac/json'); // path from root index.js
+const pathToExpression = pth + '/expression.json';
+const pathToPolicies = pth + '/policies';
 
 const controller = {};
 const operators = ['AND', 'OR', '(', ')'];

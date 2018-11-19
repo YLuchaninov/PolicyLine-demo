@@ -10,7 +10,7 @@ const options = {
     reconnectTries: 60
 };
 
-const connection_delay = 0;
+const connection_delay = 20000;
 
 module.exports = () => {
     return new Promise((resolve, reject) => {
@@ -22,4 +22,4 @@ module.exports = () => {
             });
         }, connection_delay);
     });
-}
+};

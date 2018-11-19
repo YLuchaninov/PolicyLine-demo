@@ -15,8 +15,7 @@
     "cuid": "~2.1.1",
     "express": "~4.16.3",
     "jsonwebtoken": "~8.2.1",
-    "mongoose": "~5.0.15",
-    "mongoose-unique-validator": "~2.0.1",
+    "mongoose": "5.3.12",
     "nodemon": "~1.17.3",
     "policyline": "2.0.0"
   },

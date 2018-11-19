@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
 
 const Schema = mongoose.Schema;
 
@@ -54,7 +53,6 @@ const postSchema = new Schema({
 });
 
 postSchema.index({ "location": "2dsphere" });
-postSchema.plugin(uniqueValidator);
 
 const Post = mongoose.model('Post', postSchema);
 
