@@ -5,8 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "nodemon ./app/index.js"
+    "start": "nodemon ./index.js"
   },
   "author": "Yuriy.Luchaninov@gmail.com",
   "license": "MIT",
@@ -18,9 +17,5 @@
     "mongoose": "5.3.12",
     "nodemon": "~1.17.3",
     "policyline": "2.0.0"
-  },
-  "devDependencies": {
-    "should": "~13.2.1",
-    "supertest": "~3.1.0"
   }
 }
