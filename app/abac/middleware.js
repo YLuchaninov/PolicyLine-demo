@@ -12,7 +12,7 @@ const abac = (policyGetter) => {
             const access = policy.check({
                 user,
                 action,
-                env: env.toObject(),
+                env,
                 resource: req.resource
             });
 
