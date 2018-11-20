@@ -34,6 +34,24 @@ describe('Create Post testing:', function () {
             });
     });
 
+    it('Update Post by User Company A', function (done) {
+        server
+            .put('/posts/'+ container.user_a_post_cuid)
+            .set('Authorization', 'Bearer ' + container.user_a_token)
+            .send({
+              "post": {
+                "title": "post",
+                "tags": ["#tag", "#location"]
+              }
+            })
+            .expect('Content-type', /json/)
+            .expect(200)
+            .end(function (err, res) {
+                should(res.body.post.cuid).eql(container.user_a_post_cuid);
+                done();
+            });
+    });
+
     it('Create Post by User Company B', function (done) {
         server
             .post('/posts')
@@ -51,6 +69,23 @@ describe('Create Post testing:', function () {
             .expect(200)
             .end(function (err, res) {
                 container.user_b_post_cuid = res.body.post.cuid;
+                done();
+            });
+    });
+
+    it('Update Post by User Company B', function (done) {
+        server
+            .put('/posts/'+ container.user_b_post_cuid)
+            .set('Authorization', 'Bearer ' + container.user_b_token)
+            .send({
+              "post": {
+                "content": "content2",
+              }
+            })
+            .expect('Content-type', /json/)
+            .expect(200)
+            .end(function (err, res) {
+                should(res.body.post.cuid).eql(container.user_b_post_cuid);
                 done();
             });
     });

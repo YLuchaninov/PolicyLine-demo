@@ -13,7 +13,7 @@ const extractor = (resourceRules) => {
 
     return async (req, res, next) => {
         try {
-            req.resorce = resourceExtractor(req, resourceRules);
+            req.resource = resourceExtractor(req, resourceRules);
             next();
         } catch (e) {
             return res.status(500).send(e);

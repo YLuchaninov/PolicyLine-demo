@@ -3,6 +3,7 @@
   "policies": {
     "authorB": {
       "target": [
+        "user.company='company_b'",
         "resource.author=user.cuid",
         "resource.company='company_b'"
       ]
