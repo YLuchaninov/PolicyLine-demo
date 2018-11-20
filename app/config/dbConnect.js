@@ -10,16 +10,19 @@ const options = {
     reconnectTries: 60
 };
 
-const connection_delay = 20000;
+function reconnect(resolve) {
+    setTimeout(() => {
+        mongoose.connect(config.database.url, options).then(() => {
+            resolve();
+        }).catch((err) => {
+            console.warn(err);
+            reconnect(resolve);
+        });
+    }, options.reconnectInterval);
+}
 
 module.exports = () => {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            mongoose.connect(config.database.url, options).then(() => {
-                resolve();
-            }).catch((err) => {
-                reject(err);
-            });
-        }, connection_delay);
+        reconnect(resolve);
     });
 };
