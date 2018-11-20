@@ -3,6 +3,8 @@
   "policies": {
     "worktime": {
       "target": [
+        "env.time..hour>=9",
+        "env.time..hour<=18"
       ]
     }
   }

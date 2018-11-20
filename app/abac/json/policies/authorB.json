@@ -1,0 +1,11 @@
+{
+  "comment": "Policies file for Author of Post",
+  "policies": {
+    "authorB": {
+      "target": [
+        "resource.author=user.cuid",
+        "resource.company='company_b'"
+      ]
+    }
+  }
+}

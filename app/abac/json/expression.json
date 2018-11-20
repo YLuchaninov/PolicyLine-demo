@@ -3,7 +3,7 @@
     "getPosts": "admin OR superAdmin OR user OR unregisteredUser",
     "getDetails": "admin OR superAdmin OR user OR unregisteredUser",
     "addPost": "addPost",
-    "updatePost": "admin OR superAdmin OR userCompanyA OR author",
+    "updatePost": "admin OR superAdmin OR userCompanyA OR authorС OR (authorB AND worktime AND location)",
     "deletePost": "admin OR superAdmin OR author"
   }
 }
