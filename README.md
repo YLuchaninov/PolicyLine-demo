@@ -17,9 +17,16 @@ You can add new companies with certain rules, which depend not only on roles or 
 
 ## Installation
 
+> `cd app`
 > `npm i`
-
+> `cd ..`
 > `docker-compose up --build`
+
+## Testing
+> `cd test`
+> `npm i`
+> `cd ..`
+> `mocha`
 
 ### Helpers
 
@@ -29,13 +36,11 @@ You can add new companies with certain rules, which depend not only on roles or 
 
 ### TODO
 
-* "user.company~=[\"company_a\",\"company_b\",\"company_c\"]"
 * ping mongo connection
-* dynamic loading of policy
 * check all requests by policies
 * make worktime & location policies
-* docker volume for node.js
-* setup path for abac policies
+* dynamic loading of policy
+* "user.company~=[\"company_a\",\"company_b\",\"company_c\"]"
 * add push-notification example
 
 
