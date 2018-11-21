@@ -2,7 +2,10 @@
   "comment": "Policies file for Location limits",
   "policies": {
     "location": {
-      "target": []
+      "target": [
+        "user.location.coordinates..radius=1",
+        "user.location.coordinates..inArea=[40.709517, -73.937484]"
+      ]
     }
   }
 }

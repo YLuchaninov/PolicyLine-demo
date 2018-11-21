@@ -53,7 +53,7 @@ describe('Before All Tests:', function () {
             .send({
                 'username': 'user_b@company_b.com',
                 'password': 'test',
-                'location': [49.98081, 36.25272],
+                'location': [40.709452, -73.938578],
                 'company': 'company_b',
                 'age': 25,
                 'role': 'user'
