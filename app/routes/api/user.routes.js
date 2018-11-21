@@ -1,5 +1,5 @@
 const UserController = require('../../controllers/user.controller');
-const { authorization } = require("../../middlewares");
+const { identification } = require("../../middlewares");
 
 module.exports = (router) => {
     // create user
@@ -11,6 +11,6 @@ module.exports = (router) => {
         UserController.login);
 
     router.post('/user/delete',
-        authorization('header'),
+        identification('header'),
         UserController.delete);
 };

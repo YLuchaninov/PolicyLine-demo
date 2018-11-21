@@ -1,7 +1,7 @@
 {
   "comment": "Policies file for Author of Post",
   "policies": {
-    "author": {
+    "anyAuthor": {
       "target": [
         "resource.author=user.cuid"
       ]

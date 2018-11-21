@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser');
-const authorization = require('./authorization');
+const identification = require('./identification');
 const extractor = require('./resourceExtractor');
 
 const prefixMiddleware = (app) => {
@@ -11,6 +11,6 @@ const prefixMiddleware = (app) => {
 
 module.exports = {
     prefixMiddleware,
-    authorization,
+    identification,
     extractor
 }

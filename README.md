@@ -36,7 +36,6 @@ You can add new companies with certain rules, which depend not only on roles or 
 
 ### TODO
 
-* make worktime & location policies
 * dynamic loading of policy
 * "user.company~=[\"company_a\",\"company_b\",\"company_c\"]"
 * print policy
