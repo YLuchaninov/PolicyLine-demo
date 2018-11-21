@@ -1,5 +1,6 @@
 const env = {
-    time: new Date().getTime()
+    /** be careful with the time zone **/
+    time: new Date()
 };
 
 module.exports = env;

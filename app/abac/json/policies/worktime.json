@@ -1,5 +1,5 @@
 {
-  "comment": "Policies file for WorkTime",
+  "comment": "Policies file for WorkTime. \n Be careful with the time zone! May be you need to change `..hour` mutator",
   "policies": {
     "worktime": {
       "target": [
