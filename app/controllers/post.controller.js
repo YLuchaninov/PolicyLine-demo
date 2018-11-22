@@ -18,6 +18,12 @@ PostController.addPost = async (req, res) => {
 
         const newPost = new Post(rawPost);
         const post = await newPost.save();
+
+        req.pushNotification({
+            type: 'addPost',
+            payload: post.toJSON(),
+        });
+
         return res.json({ post });
     } catch (e) {
         res.status(500).send(e);

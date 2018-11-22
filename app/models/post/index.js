@@ -52,6 +52,15 @@ const postSchema = new Schema({
     }
 });
 
+postSchema.options.toJSON = {
+    transform: function(doc, ret, options) {
+        ret.id = ret._id;
+        delete ret._id;
+        delete ret.__v;
+        return ret;
+    }
+};
+
 postSchema.index({ "location": "2dsphere" });
 
 const Post = mongoose.model('Post', postSchema);

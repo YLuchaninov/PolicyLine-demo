@@ -15,7 +15,9 @@ const fakePolicy = {
         console.warn('fake policy was checking!');
         return false;
     },
-    condition: () => {
+    getConditions: () => {
+    },
+    getWatchers: () => {
     }
 };
 
