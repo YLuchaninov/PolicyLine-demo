@@ -2,6 +2,7 @@ const cuid = require('cuid');
 const { selectorBuilder, limitBuilder } = require('../helpers/queryBuilder');
 const Post = require('../models/post');
 const statuses = require('../config/statuses');
+const { pushNotification } = require('../services');
 
 const PostController = {};
 
@@ -19,7 +20,7 @@ PostController.addPost = async (req, res) => {
         const newPost = new Post(rawPost);
         const post = await newPost.save();
 
-        req.pushNotification({
+        pushNotification({
             type: 'addPost',
             payload: post.toJSON(),
         });
