@@ -33,12 +33,3 @@ You can add new companies with certain rules, which depend not only on roles or 
 * `docker stop $(docker ps -a -q)` - stop all containers
 * `docker rm $(docker ps -a -q)` - remove all containers
 * `docker rmi $(docker images -q)` - delete all images
-
-### TODO
-
-* dynamic loading of policy
-* "user.company~=[\"company_a\",\"company_b\",\"company_c\"]"
-* print policy
-* add push-notification example
-
-

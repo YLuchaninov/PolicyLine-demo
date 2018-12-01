@@ -16,8 +16,6 @@ const fakePolicy = {
         return false;
     },
     getConditions: () => {
-    },
-    getWatchers: () => {
     }
 };
 

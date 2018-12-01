@@ -16,6 +16,6 @@
     "jsonwebtoken": "~8.2.1",
     "mongoose": "5.3.12",
     "nodemon": "~1.17.3",
-    "policyline": "2.0.1"
+    "policyline": "2.1.1"
   }
 }

@@ -6,17 +6,16 @@ const abac = (policyGetter) => {
     return async (req, res, next) => {
         const policy = (typeof policyGetter === 'function') ? policyGetter() : policyGetter;
         const user = req.user;
-        const action = null;
+        const action = {};
 
         try {
             const access = policy.check({
                 user,
                 action,
-                env,
-                resource: req.resource
+                env
             });
 
-            const condition = policy.getConditions();
+            const condition = policy.getConditions(req.resource);
 
             if (access && condition) {
                 req.condition = condition;

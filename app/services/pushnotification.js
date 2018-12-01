@@ -5,14 +5,12 @@ const env = require('../abac/env');
 const pushPolicy = policyController('getPosts');
 
 module.exports = async (data)=>{
-    data = {
+    pushPolicy().check({
+        action: {},
         env,
-        resource: data.payload
-    };
-    const userFilter = pushPolicy().getWatchers(data);
-    userFilter['$or'] = userFilter['$or'].slice(1, 3); // todo fix dirty hack
-
-    console.log(JSON.stringify(userFilter['$or'], null, 2));
+        resource: data
+    });
+    const userFilter = pushPolicy().getWatchers();
 
     try {
         const users = await User.find(userFilter);
