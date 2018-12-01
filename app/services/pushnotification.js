@@ -4,20 +4,26 @@ const env = require('../abac/env');
 
 const pushPolicy = policyController('getPosts');
 
-module.exports = async (data)=>{
-    pushPolicy().check({
-        action: {},
-        env,
-        resource: data
-    });
-    const userFilter = pushPolicy().getWatchers();
+module.exports = async (data) => {
+
+  const result = pushPolicy().check({
+    action: {},
+    env,
+    resource: data
+  });
+
+  if (result) {
+    const userFilter = pushPolicy().getConditions();
 
     try {
-        const users = await User.find(userFilter);
-        console.log(users);
+      const users = await User.find(userFilter);
 
-        // todo push
+      console.log('\n\n push notification for users:\n');
+      console.log(users);
+
+      // todo push
     } catch (e) {
-        console.warn(e);
+      console.warn(e);
     }
+  }
 };
