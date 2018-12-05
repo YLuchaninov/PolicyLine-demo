@@ -24,16 +24,16 @@ PostController.addPost = async (req, res) => {
 
         return res.json({ post });
     } catch (e) {
-        res.status(500).send(e);
+        res.status(406).send(e);
     }
 };
 
 PostController.getPost = async (req, res) => {
     try {
-        const post = await Post.findOne(req.condition).exec();
+        const post = await Post.findOne(req.condition);
         return res.json({ post });
     } catch (e) {
-        return res.status(500).send(e);
+        return res.status(406).send(e);
     }
 };
 
@@ -42,19 +42,19 @@ PostController.getAll = async (req, res) => {
         const [page, limit] = limitBuilder(req.query);
         const query = Post.find(selectorBuilder(req.query));
         return res.json({
-            posts: await query.sort('-created').limit(limit).skip(limit * page).exec(),
+            posts: await query.sort('-created').limit(limit).skip(limit * page),
             total: await query.count(),
             page,
             limit
         });
     } catch (err) {
-        return res.status(500).send(err);
+        return res.status(406).send(err);
     }
 };
 
 PostController.updatePost = async (req, res) => {
     try {
-        const post = await Post.findOne(req.condition).exec();
+        const post = await Post.findOne(req.condition);
 
         if (post) {
             post.title = req.body.post.title || post.title;
@@ -72,20 +72,20 @@ PostController.updatePost = async (req, res) => {
         }
         return res.status(404).send(statuses[404]);
     } catch (e) {
-        return res.status(500).send(e);
+        return res.status(406).send(e);
     }
 };
 
 PostController.deletePost = async (req, res) => {
     try {
-        const post = await Post.findOne(req.condition).exec();
+        const post = await Post.findOne(req.condition);
         if (!post) {
-            return res.status(403).send(statuses[403]);
+            return res.status(404).send(statuses[404]);
         }
         await post.remove();
         return res.status(200).send(statuses[200]);
     } catch (e) {
-        return res.status(500).send(e);
+        return res.status(406).send(e);
     }
 };
 

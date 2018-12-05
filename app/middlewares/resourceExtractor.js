@@ -16,7 +16,7 @@ const extractor = (resourceRules) => {
             req.resource = resourceExtractor(req, resourceRules);
             next();
         } catch (e) {
-            return res.status(500).send(e);
+            return res.status(406).send(e);
         }
     };
 };

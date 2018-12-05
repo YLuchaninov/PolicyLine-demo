@@ -1,8 +1,4 @@
-const env = {
+module.exports = {
   /** be careful with the time zone **/
-  get time() {
-    return new Date();
-  }
+  time: new Date()
 };
-
-module.exports = env;

@@ -1,5 +1,7 @@
 const express = require('express');
 
+global.__root = __dirname;
+
 const config = require('./config');
 const { prefixMiddleware } = require('./middlewares');
 const connectToDb = require('./config/dbConnect');
@@ -8,7 +10,7 @@ const initRouters = require('./routes');
 const app = express();
 prefixMiddleware(app);
 
-connectToDb().then(() => {
+connectToDb(config.database.url).then(() => {
     initRouters(app);
 
     // start server

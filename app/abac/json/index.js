@@ -1,8 +1,10 @@
 const fs = require('fs');
-const { Policy } = require('policyline');
 const path = require('path');
+const {promisify} = require('util');
 
-const pth = path.resolve(process.env.PWD, './abac/json'); // path from root index.js
+const { Policy } = require('policyline');
+
+const pth = path.resolve(global.__root, './abac/json'); // path from root index.js
 const pathToExpression = pth + '/expression.json';
 const pathToPolicies = pth + '/policies';
 
@@ -19,34 +21,11 @@ const fakePolicy = {
     }
 };
 
-// make Promise version of fs.readdir()
-function readdirAsync(dirname) {
-    return new Promise(function (resolve, reject) {
-        fs.readdir(dirname, function (err, filenames) {
-            if (err)
-                reject(err);
-            else
-                resolve(filenames);
-        });
-    });
-}
+const readdirAsync = promisify(fs.readdir);
 
-// make Promise version of fs.readFile()
-function readFileAsync(filename, enc) {
-    return new Promise(function (resolve, reject) {
-        fs.readFile(filename, enc, function (err, data) {
-            if (err)
-                reject(err);
-            else
-                resolve(data);
-        });
-    });
-}
+const readFileAsync = promisify(fs.readFile);
 
-function extract(expression) {
-    let tokens = expression.split(/\s+|(?=\(|\))|\b/);
-    return tokens.filter((elm) => !operators.includes(elm));
-}
+const extract = expression => expression.split(/\s+|(?=\(|\))|\b/).filter(elm => !operators.includes(elm));
 
 function createPolicyObj(keys, object) {
     const result = {};
