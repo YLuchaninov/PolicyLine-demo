@@ -5,5 +5,6 @@ module.exports = {
     401: {message: 'Unauthorized'},
     403: {message: 'Forbidden'},
     404: {message: 'Not Found'},
+    406: {message: 'Not Acceptable'},
     422: {message: 'Unprocessable Entity'},
-}
+};

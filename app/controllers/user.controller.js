@@ -23,7 +23,7 @@ UserController.create = async (req, res) => {
         await User.create(body);
         return res.status(200).send(statuses[200]);
     } catch (e) {
-        return res.status(500).send(e);
+        return res.status(406).send(e);
     }
 };
 
@@ -48,7 +48,7 @@ UserController.login = async (req, res) => {
 
         return res.json(result);
     } catch (e) {
-        return res.status(500).send(e);
+        return res.status(406).send(e);
     }
 };
 
@@ -57,7 +57,7 @@ UserController.delete = async (req, res) => {
         await req.user.remove();
         return res.json({ message: `user deleted successfully` });
     } catch (e) {
-        return res.status(500).send(e);
+        return res.status(406).send(e);
     }
 };
 

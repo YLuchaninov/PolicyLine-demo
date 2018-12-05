@@ -1,5 +1,5 @@
 const apiRouter = require('./api');
 
-module.exports = (app) => {
+module.exports = app => {
     app.use('/api', apiRouter);
-}
+};
